@@ -77,5 +77,13 @@ def index():
 def login():
         return render_template('PG2-doc.html')
 
+@app.route('/login2', methods = ['POST', 'GET'])
+def login2():
+        return render_template('PG2-patient.html')
+
+@app.route('/doctor', methods = ['POST', 'GET'])
+def doctor():
+        return render_template('doctor.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

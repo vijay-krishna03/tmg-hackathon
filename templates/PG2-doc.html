@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<h1>User Type</h1>
+<h1>Enter your Login Credentials</h1>
 {% endblock %}
 
 {% block body %}
 
-<form name="inputs" action="" onsubmit="return validateForm" method = "post">
+<form name="doctor" action="{{ url_for('doctor') }}" onsubmit="return validateForm" method = "post">
   <br><br><br><br><br><br>
   <label for="username">USERNAME : </label>
   <input type="text" id="username" name="username"><br><br>
@@ -15,6 +15,5 @@
   <input type="submit" value = " GO! "><br>
 </form>
 
-// CODE for validation of the results
 
 {% endblock %}
