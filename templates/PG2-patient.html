@@ -6,7 +6,7 @@
 
 {% block body %}
 
-<form name="patient" action="" onsubmit="return validateForm" method = "post">
+<form name="patient" action="{{ url_for('docu') }}" onsubmit="return validateForm" method = "post">
   <br><br><br><br><br><br>
   <label for="patient_id">PATIENT ID : </label>
   <input type="text" id="patient_id" name="patient_id"><br><br>

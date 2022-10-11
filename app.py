@@ -1,74 +1,20 @@
-#
-# from flask import Flask,render_template,request
-# from flask_mysqldb import MySQL
-#
-#
-# app = Flask(__name__)
-# app.config['MYSQL_UNIX_SOCKET'] = 'TCP'
-# app.config['MYSQL_HOST'] = '127.0.0.1'
-# app.config['MYSQL_USER'] = 'root'
-# app.config['MYSQL_PASSWORD'] = ''
-# app.config['MYSQL_DB'] = 'hospital'
-# mysql = MySQL(app)
-# @app.route('/')
-# def index():
-#     return render_template('form.html')
-#
-# @app.route('/login', methods = ['POST', 'GET'])
-# def login():
-#     if request.method == 'GET':
-#         return "Login via the login Form"
-#
-#     if request.method == 'POST':
-#         name = request.form['name']
-#         age = request.form['age']
-#         cursor = mysql.connection.cursor()
-#         cursor.execute(''' INSERT INTO info_table VALUES(%s,%s)''',(name,age))
-#         mysql.connection.commit()
-#         cursor.close()
-#         return f"Done!!"
-# if __name__ == '__main__':
-#      app.run(debug=True)
-#
-# app.run(host='localhost', port=5000)
-
-
-# from flask import Flask,render_template, request
-# from flask_mysqldb import MySQL
-#
-# app = Flask(__name__)
-# app.config['MYSQL_UNIX_SOCKET'] = 'TCP'
-# app.config['MYSQL_HOST'] = '127.0.0.1'
-# app.config['MYSQL_USER'] = 'root'
-# app.config['MYSQL_PASSWORD'] = ''
-# app.config['MYSQL_DB'] = 'hospital'
-#
-# mysql = MySQL(app)
-#
-# @app.route('/form')
-# def form():
-#     return render_template('form.html')
-#
-# @app.route('/login', methods = ['POST', 'GET'])
-# def login():
-#     if request.method == 'GET':
-#         return "Login via the login Form"
-#
-#     if request.method == 'POST':
-#         name = request.form['name']
-#         age = request.form['age']
-#         cursor = mysql.connection.cursor()
-#         cursor.execute(''' INSERT INTO info_table VALUES(%s,%s)''',(name,age))
-#         mysql.connection.commit()
-#         cursor.close()
-#         return f"Done!!"
-#
-# app.run(host='localhost', port=5000)
- # if __name__ == '__main__':
- #     app.run(debug=True)
 from flask import Flask,render_template
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+import re
+from flask import request
+from flask import Flask, session
 
 app = Flask(__name__)
+
+app.secret_key = 'your secret key'
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'geeklogin'
+
+mysql = MySQL(app)
 
 @app.route('/')
 def index():
@@ -83,7 +29,33 @@ def login2():
 
 @app.route('/doctor', methods = ['POST', 'GET'])
 def doctor():
-        return render_template('doctor.html')
+ if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+		username = request.form['username']
+		password = request.form['password']
+		cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+		cursor.execute('SELECT * FROM accounts WHERE username = % s AND password = % s', (username, password, ))
+		account = cursor.fetchone()
+		if account:
+			session['loggedin'] = True
+			session['id'] = account['id']
+			session['username'] = account['username']
+			msg = 'Logged in successfully !'
+			return render_template('doctor.html', msg = msg)
+		else:
+			msg = 'Incorrect username / password !'
+ return render_template('PG2-doc.html', msg = msg)
+
+@app.route('/access', methods = ['POST', 'GET'])
+def access():
+        return render_template('enter_view.html')
+
+@app.route('/sub', methods = ['POST', 'GET'])
+def sub():
+        return render_template('submit.html')
+
+@app.route('/docu', methods = ['POST', 'GET'])
+def docu():
+        return render_template('documents.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

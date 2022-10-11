@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<h1>HOSPITALS</h1>
+{% endblock %}
+
+{% block body %}
+
+<form name="docu" action="" onsubmit="return validateForm" method = "post">
+  <br><br><br><br><br><br>
+  <label for="hospital_1">HOSPITAL 1 : </label>
+  <input type="text" id="hospital_1" name="hospital_1"><br><br>
+  <label for="hospital_2">HOSPITAL 2 : </label>
+  <input type="text" id="hospital_2" name="hospital_2"><br><br>
+</form>
+
+{% endblock %}
