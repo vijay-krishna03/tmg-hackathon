@@ -7,7 +7,7 @@
 {% block body %}
 
 
-<form name="inputs" action="" onsubmit="return validateForm" method = "post">
+<form name="inputs" action="{{ url_for('login') }}" method = "post">
   <br><br><br><br><br><br>
   <input type="radio" id="doctor" name="user-type" value = "DOCTOR">
   <label for="doctor"> DOCTOR </label><br>
