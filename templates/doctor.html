@@ -17,8 +17,8 @@
 
     <button type="button" onclick=""> REQUEST ACCESS! </button> <br><br><br>
 
-    <label for="OTP"> OTP : </label>
-    <input type="text" id="OTP" name="OTP"><br><br>
+    <label for="OTP" required> OTP : </label>
+    <input type="text" id="OTP" name="OTP" required><br><br>
 </form>
 
 <form name="update" action="{{ url_for('sub')}}" onsubmit="return validateForm" method = "post">

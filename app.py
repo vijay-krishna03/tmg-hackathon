@@ -80,6 +80,14 @@ def viewu():
             return render_template('documents.html')
         else:
             return render_template('submit.html')
+@app.route('/register', methods = ['POST', 'GET'])
+def register():
+        return render_template('reg.html')
+
+@app.route('/signin')
+def signin():
+    return render_template('index.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
