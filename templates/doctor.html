@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<h1> ENTER THE PATIENT CREDENTIALS </h1>
 {% endblock %}
 
 {% block body %}
-
+<body></<br>></br></<br>></br></<br>>
+  <div align="center">
+  <div align="center" class="border">
+    <div class="header">
+      <h3 class="word">ENTER THE PATIENT CREDENTIALS </h3>
+    </div></<br>></<br>></br>
+    <h2 class="word">
 <form name="id" action="" onsubmit="return validateForm" method = "post">
     <label for="Patient ID">PATIENT ID : </label>
     <input type="text" id="Patient ID" name="Patient ID"><br><br>
@@ -21,13 +26,14 @@
     <input type="submit" value = " UPDATE "  ><br>
       </form>
 
-</form>
 
 <form name="view" action="{{ url_for('docu')}}" onsubmit="return validateForm" method = "post">
     <br>
     <input type="submit" value = " VIEW "  ><br>
       </form>
-
-</form>
+  </h2>
+      </div>
+      </div>
+    </body>
 
 {% endblock %}

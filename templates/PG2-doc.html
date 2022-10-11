@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<h1>Enter your Login Credentials</h1>
+
 {% endblock %}
 
 {% block body %}
+<body></<br>></br></<br>></br></<br>>
+  <div align="center">
+  <div align="center" class="border">
+    <div class="header">
+      <h1 class="word">Doctor Login</h1>
+    </div></<br>></<br>></br>
+    <h2 class="word">
 
 <form name="doctor" action="{{ url_for('doctor') }}" onsubmit="return validateForm" method = "post">
   <br><br><br><br><br><br>
@@ -14,6 +21,10 @@
   <input type="text" id="password" name="password"><br><br>
   <input type="submit" value = " GO! "><br>
 </form>
+</h2>
+</div>
+</div>
+</body>
 
 
 {% endblock %}

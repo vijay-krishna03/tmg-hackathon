@@ -1,20 +1,30 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<h1>USER TYPE</h1>
+
 {% endblock %}
 
 {% block body %}
+<body></<br>></br></<br>></br></<br>>
+  <div align="center">
+  <div align="center" class="border">
+    <div class="header">
+      <h1 class="word">Login As</h1>
+    </div></<br>></<br>></br>
+    <h2 class="word">
 
  <form name="doctor"action="{{ url_for('login') }}" method = "post">
 <!-- <form> -->
-  <br><br><br><br>
+  <br><br>
   <input type="submit" value = " DOCTOR "  ><br>
 </form>
 <form name="patient"action="{{ url_for('login2') }}" method = "post">
   <!-- <form> -->
-    <br><br><br>
+    <br><br>
     <input type="submit" value = " PATIENT "  ><br>
   </form>
-
+</h2>
+  </div>
+  </div>
+</body>
 {% endblock %}
