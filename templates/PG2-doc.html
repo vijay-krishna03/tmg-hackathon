@@ -6,21 +6,8 @@
 
 {% block body %}
 
-
-<script>
-  const element = document.getElementById("username");
-  if (user-type == 'PATIENT')  {
-    element = "phone number";
-  }
-  element.innerHTML = "New Heading";
-</script>
-
 <form name="inputs" action="" onsubmit="return validateForm" method = "post">
   <br><br><br><br><br><br>
-  <input type="radio" id="doctor" name="user-type" value = "DOCTOR">
-  <label for="doctor"> DOCTOR </label><br>
-  <input type="radio" id="patient" name="user-type" value = "PATIENT">
-  <label for="doctor"> PATIENT </label><br><br>
   <label for="username">USERNAME : </label>
   <input type="text" id="username" name="username"><br><br>
   <label for="password">PASSWORD : </label>
@@ -28,5 +15,6 @@
   <input type="submit" value = " GO! "><br>
 </form>
 
+// CODE for validation of the results
 
 {% endblock %}

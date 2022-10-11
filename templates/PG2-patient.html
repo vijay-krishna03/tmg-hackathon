@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<h1>User Type</h1>
+{% endblock %}
+
+{% block body %}
+
+<form name="inputs" action="" onsubmit="return validateForm" method = "post">
+  <br><br><br><br><br><br>
+  <label for="username">USERNAME : </label>
+  <input type="text" id="username" name="username"><br><br>
+  <label for="phone no.">PHONE NO.: </label>
+  <input type="text" id="phone no." name="phone no."><br><br>
+  <label for="otp">OTP : </label>
+  <input type="text" id="otp" name="otp"><br><br>
+  <input type="submit" value = " GO! "><br>
+</form>
+
+// CODE for validation of the results
+
+{% endblock %}
