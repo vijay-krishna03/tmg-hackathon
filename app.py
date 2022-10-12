@@ -56,21 +56,8 @@ def sub():
 @app.route('/docu', methods = ['POST', 'GET'])
 def docu():
         if request.method == 'POST' and 'patient_id' in request.form and 'password' in request.form and 'phoneno' in request.form:
-   		#ABHid = request.form['patient_id']
-   		# phoneno = request.form['phone']
-        # # password = request.form['password']
-   		# cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-   		# cursor.execute('SELECT * FROM patientlogin WHERE ABHid = % s AND phoneno = % s AND password = % s', (username, phoneno,password ))
-   		# account = cursor.fetchone()
-   		# if account:
-   		# 	 session['loggedin'] = True
-   		# 	 session['ABHid'] = account['ABHid']
-   		# 	 session['phoneno'] = account['phoneno']
-        #      # session['password'] = account['password']
-   		# 	 msg = 'Logged in successfully !'
             return render_template('documents.html')
         else:
-   		# 	msg = 'Incorrect username / password !'
 
             return render_template('PG2-patient.html')
 
@@ -87,6 +74,11 @@ def register():
 @app.route('/signin')
 def signin():
     return render_template('index.html')
+
+@app.route('/plswork',methods = ['POST', 'GET'])
+def plswork():
+    if request.method == 'POST':
+            return render_template('documents.html')
 
 
 if __name__ == '__main__':

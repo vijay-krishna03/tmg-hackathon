@@ -6,13 +6,13 @@
 
 {% block body %}
 
-<form name="docu" action="" onsubmit="return validateForm" method = "post">
+<form name="docu" action="" onsubmit="return validateForm" method = "get">
   <br><br><br><br><br><br>
-  <label for="hospital_1">HOSPITAL 1 : </label>
-  <input type="text" id="hospital_1" name="hospital_1"><br><br>
-  <label for="hospital_2">HOSPITAL 2 : </label>
-  <input type="text" id="hospital_2" name="hospital_2"><br><br>
+  <label for="patientid">PATIENT ID : </label>
+  <input type="text" id="patientid" name="patientid"><br><br>
+  <label for="patient_files">PATIENT FILES : </label>
+  <input type="text" id="patient_files" name="patient_files"><br><br>
+  <p class="worddark"> <a class="worddark" href="{{ url_for('signin')}}">sigin out</a></p>
 </form>
-	<p class="bottom"> <a class="bottom" href="{{url_for('signin')}}"> Sign out</a></p>
 
 {% endblock %}
